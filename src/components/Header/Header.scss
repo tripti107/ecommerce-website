@@ -1,0 +1,139 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+  background-color: $bg-primary;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__container {
+    max-width: $large;
+    margin: 0 auto;
+    padding: 0 $spacing-4;
+    height: 70px;
+    @include flex-between;
+
+    @include tablet {
+      padding: 0 $spacing-6;
+    }
+  }
+
+  &__menu-toggle {
+    @include button-base;
+    background: none;
+    padding: $spacing-2;
+    color: $text-primary;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    h1 {
+      color: $primary-color;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      margin: 0;
+    }
+
+    @include tablet {
+      margin-right: auto;
+    }
+  }
+
+  &__nav {
+    display: none;
+    gap: $spacing-8;
+
+    @include tablet {
+      display: flex;
+      margin-right: auto;
+      margin-left: $spacing-12;
+    }
+
+    &--open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $bg-primary;
+      box-shadow: $shadow-md;
+      padding: $spacing-4;
+      gap: $spacing-4;
+
+      @include tablet {
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        gap: $spacing-8;
+      }
+    }
+
+    &-link {
+      color: $text-primary;
+      text-decoration: none;
+      font-weight: $font-weight-medium;
+      padding: $spacing-2 0;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      @include tablet {
+        padding: 0;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+  }
+
+  &__search-btn {
+    @include button-base;
+    background: none;
+    padding: $spacing-2;
+    color: $text-secondary;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__cart-btn {
+    @include button-base;
+    background: none;
+    padding: $spacing-2;
+    color: $text-secondary;
+    position: relative;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: $error-color;
+    color: white;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    @include flex-center;
+    min-width: 18px;
+  }
+}
