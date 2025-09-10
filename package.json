@@ -1,8 +1,17 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "shopeasy-ecommerce",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A modern, responsive ecommerce website built with React and SCSS",
+  "keywords": ["react", "ecommerce", "scss", "javascript", "responsive", "shopping-cart"],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/shopeasy-ecommerce.git"
+  },
+  "homepage": "https://github.com/yourusername/shopeasy-ecommerce#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
