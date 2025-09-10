@@ -1,13 +1,13 @@
-import React, { useState, useMemo } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
-import CartSidebar from './components/CartSidebar/CartSidebar';
-import Home from './pages/Home/Home';
-import Products from './pages/Products/Products';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
-import { useCart } from './hooks/useCart';
-import './App.scss';
+import React, { useState, useMemo } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import CartSidebar from "./components/CartSidebar/CartSidebar";
+import Home from "./pages/Home/Home";
+import Products from "./pages/Products/Products";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import { useCart } from "./hooks/useCart";
+import "./App.scss";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -22,7 +22,7 @@ function App() {
     removeFromCart,
     updateQuantity,
     getCartTotal,
-    getCartItemsCount
+    getCartItemsCount,
   } = useCart();
 
   const handleAddToCart = (product) => {
@@ -33,7 +33,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Header 
+        <Header
           onCartClick={() => setIsCartOpen(true)}
           cartItemsCount={getCartItemsCount()}
           onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -42,29 +42,29 @@ function App() {
 
         <main className="app__main">
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
-                <Home 
+                <Home
                   onAddToCart={handleAddToCart}
                   selectedProduct={selectedProduct}
                   setSelectedProduct={setSelectedProduct}
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
                 />
-              } 
+              }
             />
-            <Route 
-              path="/products" 
+            <Route
+              path="/products"
               element={
-                <Products 
+                <Products
                   onAddToCart={handleAddToCart}
                   selectedProduct={selectedProduct}
                   setSelectedProduct={setSelectedProduct}
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
                 />
-              } 
+              }
             />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
