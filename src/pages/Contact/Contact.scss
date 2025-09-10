@@ -1,0 +1,235 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contact-page {
+  &__hero {
+    text-align: center;
+    padding: $spacing-16 0;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+    color: white;
+    border-radius: $radius-xl;
+    margin-bottom: $spacing-16;
+
+    &-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 $spacing-4;
+    }
+
+    h1 {
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-6 0;
+      line-height: 1.2;
+
+      @include tablet {
+        font-size: 3.5rem;
+      }
+    }
+
+    p {
+      font-size: $font-size-lg;
+      line-height: 1.6;
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
+
+  &__info {
+    margin-bottom: $spacing-16;
+
+    &-grid {
+      display: grid;
+      gap: $spacing-6;
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include desktop {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &-card {
+      @include card;
+      padding: $spacing-6;
+      text-align: center;
+    }
+
+    &-icon {
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      @include flex-center;
+      margin: 0 auto $spacing-4 auto;
+    }
+
+    &-content {
+      h3 {
+        color: $text-primary;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        margin: 0 0 $spacing-2 0;
+      }
+
+      p {
+        color: $text-secondary;
+        font-size: $font-size-sm;
+        line-height: 1.5;
+        margin: $spacing-2 0 0 0;
+      }
+    }
+
+    &-details {
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-1;
+    }
+  }
+
+  &__form-section {
+    margin-bottom: $spacing-16;
+  }
+
+  &__form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    @include card;
+    padding: $spacing-8;
+
+    @include tablet {
+      padding: $spacing-12;
+    }
+  }
+
+  &__form-header {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-4;
+    margin-bottom: $spacing-8;
+
+    svg {
+      color: $primary-color;
+      flex-shrink: 0;
+      margin-top: $spacing-1;
+    }
+
+    h2 {
+      color: $text-primary;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-2 0;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  &__form {
+    @include flex-column;
+    gap: $spacing-6;
+
+    &-row {
+      display: grid;
+      gap: $spacing-4;
+
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    &-group {
+      @include flex-column;
+      gap: $spacing-2;
+
+      label {
+        color: $text-primary;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-sm;
+      }
+
+      input,
+      textarea {
+        padding: $spacing-3;
+        border: 1px solid $border-medium;
+        border-radius: $radius-md;
+        font-size: $font-size-base;
+        font-family: inherit;
+        transition: all 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+
+        &::placeholder {
+          color: $text-light;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+  }
+
+  &__submit-btn {
+    @include button-primary;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    gap: $spacing-2;
+    align-self: flex-start;
+
+    @include tablet {
+      align-self: center;
+    }
+  }
+
+  &__faq {
+    h2 {
+      color: $text-primary;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      text-align: center;
+      margin: 0 0 $spacing-12 0;
+
+      @include tablet {
+        font-size: $font-size-3xl;
+      }
+    }
+
+    &-list {
+      display: grid;
+      gap: $spacing-6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    &-item {
+      @include card;
+      padding: $spacing-6;
+
+      h3 {
+        color: $text-primary;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        margin: 0 0 $spacing-3 0;
+      }
+
+      p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+  }
+}

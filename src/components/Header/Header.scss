@@ -32,6 +32,10 @@
   }
 
   &__logo {
+    a {
+      text-decoration: none;
+    }
+
     h1 {
       color: $primary-color;
       font-size: $font-size-xl;
@@ -82,13 +86,33 @@
       font-weight: $font-weight-medium;
       padding: $spacing-2 0;
       transition: color 0.2s ease;
+      position: relative;
 
       &:hover {
         color: $primary-color;
       }
 
+      &--active {
+        color: $primary-color;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: $primary-color;
+          border-radius: 1px;
+        }
+      }
+
       @include tablet {
         padding: 0;
+        
+        &--active::after {
+          bottom: -8px;
+        }
       }
     }
   }

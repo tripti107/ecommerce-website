@@ -1,0 +1,78 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.products-page {
+  &__header {
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+    color: white;
+    padding: $spacing-12 $spacing-6;
+    border-radius: $radius-xl;
+    margin-bottom: $spacing-12;
+
+    @include tablet {
+      padding: $spacing-16 $spacing-8;
+    }
+  }
+
+  &__title-section {
+    display: flex;
+    align-items: center;
+    gap: $spacing-4;
+    margin-bottom: $spacing-8;
+
+    @include tablet {
+      gap: $spacing-6;
+    }
+  }
+
+  &__icon {
+    background: rgba(255, 255, 255, 0.2);
+    padding: $spacing-4;
+    border-radius: $radius-lg;
+    @include flex-center;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-2 0;
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &__stats {
+    display: flex;
+    gap: $spacing-6;
+    flex-wrap: wrap;
+
+    @include tablet {
+      gap: $spacing-8;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    background: rgba(255, 255, 255, 0.1);
+    padding: $spacing-3 $spacing-4;
+    border-radius: $radius-lg;
+    font-weight: $font-weight-medium;
+    backdrop-filter: blur(10px);
+  }
+
+  &__content {
+    @include flex-column;
+    gap: $spacing-8;
+  }
+}

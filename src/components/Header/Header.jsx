@@ -1,8 +1,17 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Search, Menu, X } from 'lucide-react';
 import './Header.scss';
 
 const Header = ({ onCartClick, cartItemsCount, onMenuToggle, isMenuOpen }) => {
+  const location = useLocation();
+
+  const isActiveLink = (path) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
+  };
+
   return (
     <header className="header">
       <div className="header__container">
@@ -17,15 +26,41 @@ const Header = ({ onCartClick, cartItemsCount, onMenuToggle, isMenuOpen }) => {
 
         {/* Logo */}
         <div className="header__logo">
-          <h1>ShopEasy</h1>
+          <Link to="/">
+            <h1>ShopEasy</h1>
+          </Link>
         </div>
 
         {/* Navigation */}
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
-          <a href="#home" className="header__nav-link">Home</a>
-          <a href="#products" className="header__nav-link">Products</a>
-          <a href="#about" className="header__nav-link">About</a>
-          <a href="#contact" className="header__nav-link">Contact</a>
+          <Link 
+            to="/" 
+            className={`header__nav-link ${isActiveLink('/') ? 'header__nav-link--active' : ''}`}
+            onClick={() => onMenuToggle && onMenuToggle()}
+          >
+            Home
+          </Link>
+          <Link 
+            to="/products" 
+            className={`header__nav-link ${isActiveLink('/products') ? 'header__nav-link--active' : ''}`}
+            onClick={() => onMenuToggle && onMenuToggle()}
+          >
+            Products
+          </Link>
+          <Link 
+            to="/about" 
+            className={`header__nav-link ${isActiveLink('/about') ? 'header__nav-link--active' : ''}`}
+            onClick={() => onMenuToggle && onMenuToggle()}
+          >
+            About
+          </Link>
+          <Link 
+            to="/contact" 
+            className={`header__nav-link ${isActiveLink('/contact') ? 'header__nav-link--active' : ''}`}
+            onClick={() => onMenuToggle && onMenuToggle()}
+          >
+            Contact
+          </Link>
         </nav>
 
         {/* Actions */}

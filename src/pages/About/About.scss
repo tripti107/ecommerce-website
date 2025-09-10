@@ -1,0 +1,309 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.about-page {
+  &__hero {
+    text-align: center;
+    padding: $spacing-16 0;
+    background: linear-gradient(135deg, $bg-secondary 0%, rgba($primary-color, 0.05) 100%);
+    border-radius: $radius-xl;
+    margin-bottom: $spacing-16;
+
+    &-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 $spacing-4;
+    }
+
+    h1 {
+      color: $text-primary;
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-6 0;
+      line-height: 1.2;
+
+      @include tablet {
+        font-size: 3.5rem;
+      }
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-lg;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  &__story {
+    margin-bottom: $spacing-16;
+
+    &-content {
+      display: grid;
+      gap: $spacing-12;
+      align-items: center;
+
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-16;
+      }
+    }
+
+    &-text {
+      h2 {
+        color: $text-primary;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        margin: 0 0 $spacing-6 0;
+
+        @include tablet {
+          font-size: $font-size-3xl;
+        }
+      }
+
+      p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: $spacing-4;
+
+        &:last-of-type {
+          margin-bottom: $spacing-8;
+        }
+      }
+    }
+
+    &-image {
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: $radius-xl;
+        box-shadow: $shadow-lg;
+      }
+    }
+  }
+
+  &__achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-6;
+  }
+
+  &__achievement {
+    text-align: center;
+    padding: $spacing-4;
+    background: $bg-secondary;
+    border-radius: $radius-lg;
+
+    &-number {
+      display: block;
+      color: $primary-color;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-1;
+    }
+
+    &-label {
+      color: $text-secondary;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-1;
+
+      .star-filled {
+        color: $accent-color;
+        fill: $accent-color;
+      }
+    }
+  }
+
+  &__features {
+    margin-bottom: $spacing-16;
+    text-align: center;
+
+    h2 {
+      color: $text-primary;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-12 0;
+
+      @include tablet {
+        font-size: $font-size-3xl;
+      }
+    }
+
+    &-grid {
+      display: grid;
+      gap: $spacing-8;
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include desktop {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  &__feature {
+    @include card;
+    padding: $spacing-8;
+    text-align: center;
+
+    &-icon {
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      @include flex-center;
+      margin: 0 auto $spacing-4 auto;
+    }
+
+    h3 {
+      color: $text-primary;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $spacing-3 0;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  &__team {
+    margin-bottom: $spacing-16;
+    text-align: center;
+
+    h2 {
+      color: $text-primary;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $spacing-12 0;
+
+      @include tablet {
+        font-size: $font-size-3xl;
+      }
+    }
+
+    &-grid {
+      display: grid;
+      gap: $spacing-8;
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include desktop {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &-member {
+      @include card;
+      padding: $spacing-6;
+      text-align: center;
+
+      &-image {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto $spacing-4 auto;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-info {
+        h3 {
+          color: $text-primary;
+          font-size: $font-size-lg;
+          font-weight: $font-weight-semibold;
+          margin: 0 0 $spacing-1 0;
+        }
+
+        p {
+          color: $text-secondary;
+          line-height: 1.5;
+          margin: $spacing-2 0 0 0;
+        }
+      }
+
+      &-role {
+        color: $primary-color;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  &__values {
+    background: $bg-secondary;
+    padding: $spacing-16;
+    border-radius: $radius-xl;
+
+    &-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+
+      h2 {
+        color: $text-primary;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        margin: 0 0 $spacing-12 0;
+
+        @include tablet {
+          font-size: $font-size-3xl;
+        }
+      }
+    }
+
+    &-list {
+      @include flex-column;
+      gap: $spacing-8;
+      text-align: left;
+    }
+  }
+
+  &__value {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-4;
+    padding: $spacing-6;
+    background: white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+
+    svg {
+      color: $primary-color;
+      flex-shrink: 0;
+      margin-top: $spacing-1;
+    }
+
+    h3 {
+      color: $text-primary;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $spacing-2 0;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
